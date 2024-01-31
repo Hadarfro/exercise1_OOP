@@ -221,7 +221,9 @@ public class GameLogic implements PlayableLogic{
                 if (board[positionX + 1][positionY] != null && pos1.isValidPosition()) {
                     if (!piece.getOwner().equals(board[positionX + 1][positionY].getOwner())) {
                         if (checkNeighbour(positionX + 1, positionY)) {
-                            piece.setNumKills();
+                            if (!board[positionX + 1][positionY].getType().equals("♔")) {
+                                piece.setNumKills();
+                            }
                             isGameFinished();
                             board[positionX + 1][positionY] = null;
                         }
@@ -232,7 +234,9 @@ public class GameLogic implements PlayableLogic{
                 if (board[positionX - 1][positionY] != null && pos2.isValidPosition()) {
                     if (!piece.getOwner().equals(board[positionX - 1][positionY].getOwner())) {
                         if (checkNeighbour(positionX - 1, positionY)) {
-                            piece.setNumKills();
+                            if (!board[positionX - 1][positionY].getType().equals("♔")){
+                                piece.setNumKills();
+                            }
                             isGameFinished();
                             board[positionX - 1][positionY] = null;
                         }
@@ -243,7 +247,9 @@ public class GameLogic implements PlayableLogic{
                 if (board[positionX][positionY + 1] != null && pos3.isValidPosition()) {
                     if (!piece.getOwner().equals(board[positionX][positionY + 1].getOwner())) {
                         if (checkNeighbour(positionX, positionY + 1)) {
-                            piece.setNumKills();
+                            if (!board[positionX][positionY+1].getType().equals("♔")){
+                                piece.setNumKills();
+                            }
                             isGameFinished();
                             board[positionX][positionY + 1] = null;
                         }
@@ -254,7 +260,9 @@ public class GameLogic implements PlayableLogic{
                 if (board[positionX][positionY - 1] != null && pos4.isValidPosition()) {
                     if (!piece.getOwner().equals(board[positionX][positionY - 1].getOwner())) {
                         if (checkNeighbour(positionX, positionY - 1)) {
-                            piece.setNumKills();
+                            if (!board[positionX][positionY-1].getType().equals("♔")){
+                                piece.setNumKills();
+                            }
                             isGameFinished();
                             board[positionX][positionY - 1] = null;
                         }
